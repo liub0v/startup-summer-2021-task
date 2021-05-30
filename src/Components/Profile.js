@@ -1,26 +1,29 @@
 import React from 'react'
-
-
+import {Loader} from "./Loader";
 import "../public/stylesheets/profile.css"
 
 export const Profile = React.memo((props) => {
 
-
-
         const userData = props.data;
-        console.log("profile render")
+
+        if (props.isLoading) {
+            return (
+
+                <Loader/>
+            )
+        }
 
         return (
             <>
                 <div className="profile-item">
-                    <img alt ="avatar" className="avatar" src={userData.avatar_url}/>
+                    <img alt="avatar" className="avatar" src={userData.avatar_url}/>
                 </div>
                 <div className="profile-item">
                     <div className="name">
                         <label>{userData.name}</label>
                     </div>
                     <div className="login">
-                        <a  rel="noreferrer" target="_blank" href={userData.html_url}> {userData.login}</a>
+                        <a rel="noreferrer" target="_blank" href={userData.html_url}> {userData.login}</a>
                     </div>
                 </div>
                 <div className="following">

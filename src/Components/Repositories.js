@@ -1,35 +1,37 @@
 import React from 'react'
 import {RepositoriesNotFound} from "./RepositiriesNotFound";
-import ReactPaginate from 'react-paginate';
 import {Repository} from "./Repository";
 import "../public/stylesheets/repos-style.css"
+import {Loader} from "./Loader";
 
 export const Repositories = React.memo((props) => {
 
 
-        const reposData = props.data;
-        reposData.length>0 ? console.log("Show: "+reposData[0].name) : console.log("Show: empty")
+    const reposData = props.data;
 
+    if (props.isLoading) {
         return (
-            <>
-                {reposData.length > 0 ? (
-                    <>
-                        <h1 className="repos-header">Repositories ({props.count})</h1>
-                        <div className="repos-list">
-                            {
-                                reposData.map(item => (
-                                    <Repository item={item}/>
-                                ))
-                            }
-                        </div>
-
-                    </>
-                ) : (
-                    <RepositoriesNotFound/>
-                )
-                }
-
-            </>
+            <Loader/>
         )
     }
-)
+    if (reposData.length > 0) {
+        return (
+            <>
+                <h1 className="repos-header">Repositories ({props.count})</h1>
+                <div className="repos-list">
+                    {
+                        reposData.map(item => (
+                            <Repository item={item}/>
+                        ))
+                    }
+                </div>
+            </>
+        )
+    } else {
+        return (
+            <RepositoriesNotFound/>
+        )
+    }
+
+
+})

@@ -18,7 +18,7 @@
     height: 100vh;
     /*justify-content: space-around;*/
 }
-.user-info {
+.info-wrapper {
     justify-content: space-around;
     flex: 1 0 auto;
     /*margin-bottom: 2vh;*/

@@ -6,7 +6,7 @@ export const useRequest = (initData) => {
     const [userData,setUserData] = useState(initData);
     const [url, setUrl] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [status, setStatus] = useState(0);
+    const [isError, setIsError] = useState(false);
     const [options,setOptions] = useState(null);
 
 
@@ -31,13 +31,13 @@ export const useRequest = (initData) => {
             }
             response().then(
                 (result) => {
-                    console.log(result)
+                    // console.log(result)
                     setUserData(result.data);
-                    setStatus(result.status);
                     setIsLoading(false);
+                    setIsError(false);
                 },
                 (error) => {
-                    setStatus(error.status);
+                    setIsError(true);
                     setIsLoading(false);
                 }
             );
@@ -46,7 +46,7 @@ export const useRequest = (initData) => {
 
     return {
         isLoading : isLoading,
-        status : status,
+        isError : isError,
         data: userData,
         request: request
     };
