@@ -1,0 +1,88 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.search {
+    background: #0064EB;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1vh 1.6%;
+}
+.main-page {
+    /*padding: 0 4vw;*/
+    display: flex;
+    flex-direction: column;
+    /*background: grey;*/
+    height: 100vh;
+    /*justify-content: space-around;*/
+}
+.user-info {
+    justify-content: space-around;
+    flex: 1 0 auto;
+    /*margin-bottom: 2vh;*/
+    /*background: #87a0de;*/
+}
+.main-page-paginator {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    /*background: #ab3030;*/
+}
+
+.search-item {
+    margin-left: 1.6%;
+}
+
+
+
+.main-page > div {
+    flex-wrap: wrap;
+    display: flex;
+
+    /*background-color: #d9d9ae;*/
+}
+
+
+.profile {
+    /*background-color: #dccde7;*/
+    width: 21vw;
+    height: 56vh;
+    margin-top: 3vh;
+    min-width: 292px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.repos {
+    margin-top: 2vh;
+    /*min-height: 76vh;*/
+    display: flex;
+    flex-direction: column;
+    /*background-color: rgba(153, 18, 18, 0.37);*/
+    width: 64vw;
+    min-width: 320px;
+}
+
+.main-page-paginator > div {
+    padding-bottom: 30px ;
+    padding-right: 70px;
+    /*background-color: blue;*/
+}
+.state {
+    /*background-color: blue;*/
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.state-item label{
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+}

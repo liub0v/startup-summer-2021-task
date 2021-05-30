@@ -1,0 +1,19 @@
+input[type=text] {
+    background-color: white;
+    background-image: url('/src/public/images/loupe.svg');
+    background-position: 19px 50%;
+    background-repeat: no-repeat;
+    padding-left: 44px;
+    font-weight: normal;
+    font-size: 14px;
+    border-radius: 6px;
+    width: 36vw;
+    height: 4vh;
+    border: 0 solid;
+    min-width: 180px;
+
+}
+input[type=text]:focus{
+
+    border: 0 solid;
+}
