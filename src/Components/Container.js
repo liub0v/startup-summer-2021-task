@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import {Profile} from "./Profile";
 import {Repositories} from "./Repositories";
 import {Paginator} from "./Paginator";
-import {useRequest} from "../hooks/useRequest";
 export const Container = (props)=>{
 
     const [reposCount, setPageCount] = useState(0);

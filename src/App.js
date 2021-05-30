@@ -1,15 +1,12 @@
-import React, {useEffect, useState} from "react";
-import {Profile} from "./Components/Profile";
-import {Repositories} from "./Components/Repositories";
+import React, {useState} from "react";
 import {useRequest} from "./hooks/useRequest";
-import {Loader} from "./Components/Loader";
+
 import {InitialState} from "./Components/InitialState";
 import {UserNotFound} from "./Components/UserNotFound";
 import "./public/stylesheets/style.css";
 import "./public/stylesheets/input-style.css"
 import "./public/stylesheets/pagination.css"
-import ReactPaginate from "react-paginate";
-import {Paginator} from "./Components/Paginator";
+
 import {Search} from "./Components/Search";
 import {Container} from "./Components/Container";
 const initProfileData = {
