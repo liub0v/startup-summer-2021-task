@@ -12,7 +12,7 @@ export const Container = (props)=>{
 
     useEffect(() => {
         setPageCount(profileInfo.data.public_repos);
-
+        setPage(1);
 
     }, [profileInfo.data])
     useEffect(() => {
@@ -46,7 +46,7 @@ export const Container = (props)=>{
                 </div>
             </div>
             {
-                reposCount > 4 && (
+                reposCount > 4 && !profileInfo.isLoading && (
                     <Paginator
                         currentPage={page}
                         reposCount={reposCount}

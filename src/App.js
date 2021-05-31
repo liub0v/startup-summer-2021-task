@@ -37,8 +37,6 @@ function App() {
 
     const handleSubmit = (event) => {
 
-
-
         usernameValue ? setIsInitialState(false) : setIsInitialState(true);
 
         reposInfo.request(`GET /${usernameValue}/repos`, {
