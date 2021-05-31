@@ -33,9 +33,11 @@ function App() {
     const reposInfo = useRequest(initRepoData);
     const profileInfo = useRequest(initProfileData);
 
+
+
     const handleSubmit = (event) => {
 
-        setIsNewUser(true);
+
 
         usernameValue ? setIsInitialState(false) : setIsInitialState(true);
 

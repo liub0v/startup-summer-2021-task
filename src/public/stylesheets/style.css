@@ -28,14 +28,12 @@
     flex: 0 0 auto;
     display: flex;
     justify-content: flex-end;
-    /*background: #ab3030;*/
+    /*background: rgba(112, 112, 109, 0.29);*/
 }
 
 .search-item {
     margin-left: 1.6%;
 }
-
-
 
 .main-page > div {
     flex-wrap: wrap;
@@ -67,11 +65,7 @@
     min-width: 320px;
 }
 
-.main-page-paginator > div {
-    padding-bottom: 30px ;
-    padding-right: 70px;
-    /*background-color: blue;*/
-}
+
 .state {
     /*background-color: blue;*/
     display: flex;

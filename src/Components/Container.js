@@ -13,6 +13,7 @@ export const Container = (props)=>{
     useEffect(() => {
         setPageCount(profileInfo.data.public_repos);
 
+
     }, [profileInfo.data])
     useEffect(() => {
 
@@ -22,10 +23,6 @@ export const Container = (props)=>{
         })
 
     }, [page])
-    useEffect(()=>{
-        setPage(1);
-
-    },[props.trigger])
 
     const handleChange = (data) => {
         console.log("Changed page: " + data.selected)
