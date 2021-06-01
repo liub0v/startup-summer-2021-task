@@ -1,0 +1,26 @@
+.header {
+    background: #0064EB;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1vh 1.6%;
+}
+
+.header div {
+    margin-right: 1%;
+}
+
+.header input[type=text] {
+    background-color: white;
+    background-image: url('/src/public/images/loupe.svg');
+    background-position: 19px 50%;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+    border: 0 solid;
+    padding-left: 44px;
+    width: 36vw;
+    height: 4vh;
+    min-width: 180px;
+    font-weight: normal;
+    font-size: 14px;
+}

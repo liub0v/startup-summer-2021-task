@@ -1,0 +1,42 @@
+.container-repos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    width: 64vw;
+    min-width: 320px;
+}
+
+.container-repos h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.repos-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.repos-list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    margin-bottom: 3vh;
+    padding: 0 2vw;
+    height: 14vh;
+}
+
+.repos-list-item a {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.repos-list-item p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+}

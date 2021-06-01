@@ -10,7 +10,6 @@ export const useRequest = (initData) => {
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
 
-
     //first render
     const [didMount, setDidMount] = useState(false)
     useEffect(() => setDidMount(true), [])
@@ -21,7 +20,6 @@ export const useRequest = (initData) => {
     }
 
     useEffect(() => {
-
         const octokit = new Octokit({
             baseUrl: GITHUB_API_URL
         })

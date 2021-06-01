@@ -17,4 +17,11 @@ const INIT_REPOSITORIES = [{
     name: "",
     description: "",
 }]
-export {PER_PAGE, THOUSAND, MILLION, GITHUB_API_URL, INIT_PROFILE, INIT_REPOSITORIES}
+export {
+    PER_PAGE,
+    THOUSAND,
+    MILLION,
+    GITHUB_API_URL,
+    INIT_PROFILE,
+    INIT_REPOSITORIES
+}

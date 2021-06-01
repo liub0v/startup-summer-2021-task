@@ -16,14 +16,14 @@ export const Repositories = React.memo((props) => {
     if (repositories.length) {
         return (
             <>
-                <h1 className="repos-header">Repositories ({props.reposCount})</h1>
+                <h1>Repositories ({props.reposCount})</h1>
                 <div className="repos-list">
                     {
                         repositories.map(repo => (
                             <Repository
                                 html_url={repo.html_url}
-                                name = {repo.name}
-                                description = {repo.description}
+                                name={repo.name}
+                                description={repo.description}
                             />
                         ))
                     }
@@ -35,6 +35,5 @@ export const Repositories = React.memo((props) => {
             <RepositoriesNotFound/>
         )
     }
-
 
 })

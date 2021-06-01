@@ -8,7 +8,6 @@ export const UserPage = (props) => {
 
     const [reposCount, setReposCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
-
     const profile = props.profile;
     const repos = props.repos;
     const username = props.username;
@@ -32,28 +31,29 @@ export const UserPage = (props) => {
     }
 
     return (
-        <div className="main-page">
-            <div className="info-wrapper">
-                <div className="profile">
+        <div className="user-page-wrapper">
+            <div className="user-page">
+                <div className="container-profile">
                     <Profile
                         profile={profile}
                     />
                 </div>
-                <div className="repos">
+                <div className="container-repos">
                     <Repositories
                         repos={repos}
                         reposCount={reposCount}
                     />
                 </div>
             </div>
-            {
-                reposCount > 4 && !props.profile.isLoading && (
+            {reposCount > 4 && !props.profile.isLoading && (
+                <div className="container-pagination">
                     <Pagination
                         currentPage={currentPage}
                         reposCount={reposCount}
                         handleChange={handleChange}
                     />
-                )
+                </div>
+            )
             }
 
         </div>
