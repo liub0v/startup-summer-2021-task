@@ -1,27 +1,30 @@
 import React from 'react'
-import {RepositoriesNotFound} from "./RepositiriesNotFound";
+import {RepositoriesNotFound} from "./EmptyRepositiriesList";
 import {Repository} from "./Repository";
-import "../public/stylesheets/repos-style.css"
 import {Loader} from "./Loader";
 
 export const Repositories = React.memo((props) => {
 
+    const repositories = props.repos.data;
 
-    const reposData = props.data;
+    if (props.repos.isLoading) {
 
-    if (props.isLoading) {
         return (
             <Loader/>
         )
     }
-    if (reposData.length > 0) {
+    if (repositories.length) {
         return (
             <>
-                <h1 className="repos-header">Repositories ({props.count})</h1>
+                <h1 className="repos-header">Repositories ({props.reposCount})</h1>
                 <div className="repos-list">
                     {
-                        reposData.map(item => (
-                            <Repository item={item}/>
+                        repositories.map(repo => (
+                            <Repository
+                                html_url={repo.html_url}
+                                name = {repo.name}
+                                description = {repo.description}
+                            />
                         ))
                     }
                 </div>

@@ -12,8 +12,8 @@ export const Search = (props) => {
             </div>
             <div className="search-item">
                 <form onSubmit={props.handleSubmit}>
-                    <input type="text"  onChange={e => props.setUsernameValue(e.target.value.trim())}
-                           placeholder="username"/>
+                    <input type="text" onChange={e => props.setUsername(e.target.value.trim())}
+                           placeholder="Enter GitHub username"/>
                 </form>
             </div>
         </div>

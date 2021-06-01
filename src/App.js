@@ -1,49 +1,33 @@
 import React, {useState} from "react";
 import {useRequest} from "./hooks/useRequest";
-
 import {InitialState} from "./Components/InitialState";
 import {UserNotFound} from "./Components/UserNotFound";
-import "./public/stylesheets/style.css";
-import "./public/stylesheets/input-style.css"
-import "./public/stylesheets/pagination.css"
-
 import {Search} from "./Components/Search";
-import {Container} from "./Components/Container";
-const initProfileData = {
-    avatar_url: "",
-    name: "",
-    html_url: "",
-    login: "",
-    followers: 0,
-    following: 0,
-    public_repos: 0,
-}
-const initRepoData = [{
-    html_url: "",
-    name: "",
-    description: "",
-}]
+import {UserPage} from "./Components/UserPage";
+import "./public/stylesheets/style.css";
+import {INIT_PROFILE, INIT_REPOSITORIES, PER_PAGE} from "./constants";
 
 function App() {
 
-    const [usernameValue, setUsernameValue] = useState("");
+    const [username, setUsername] = useState("");
     const [isInitialState, setIsInitialState] = useState(true);
-    const [isNewUser, setIsNewUser] = useState(false);
-
-    const reposInfo = useRequest(initRepoData);
-    const profileInfo = useRequest(initProfileData);
-
+    const repos = useRequest(INIT_PROFILE);
+    const profile = useRequest(INIT_REPOSITORIES);
 
 
     const handleSubmit = (event) => {
 
-        usernameValue ? setIsInitialState(false) : setIsInitialState(true);
+        if (username) {
+            setIsInitialState(false)
+            repos.request(`GET /${username}/repos`, {
+                page: 1,
+                per_page: PER_PAGE
+            });
+            profile.request(`GET /${username}`, {});
+        } else {
+            setIsInitialState(true);
+        }
 
-        reposInfo.request(`GET /${usernameValue}/repos`, {
-            page: 1,
-            per_page: 4
-        });
-        profileInfo.request(`GET /${usernameValue}`, {});
         event.preventDefault();
     }
 
@@ -51,20 +35,19 @@ function App() {
         <div className="container">
             <Search
                 handleSubmit={handleSubmit}
-                setUsernameValue={setUsernameValue}
+                setUsername={setUsername}
             />
             {
                 isInitialState ? (
                     <InitialState/>
-                ) : ( profileInfo.isError ? (
-                    <UserNotFound/>
+                ) : (profile.isError ? (
+                        <UserNotFound/>
                     ) : (
-                    <Container
-                        profileInfo = {profileInfo}
-                        reposInfo = {reposInfo}
-                        usernameValue = {usernameValue}
-                        trigger = {isNewUser}
-                    />
+                        <UserPage
+                            profile={profile}
+                            repos={repos}
+                            username={username}
+                        />
                     )
                 )
             }

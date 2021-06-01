@@ -4,10 +4,12 @@ export const Repository = (props) => {
 
     return (
         <div className="repos-list-item">
-            <a  rel="noreferrer" target="_blank" href={props.item.html_url}>
-                {props.item.name}
+            <a rel="noreferrer" target="_blank" href={props.html_url}>
+                {props.name}
             </a>
-            <p> {props.item.description}</p>
+            <p>
+                {props.description}
+            </p>
         </div>
 
     )

@@ -1,3 +1,9 @@
+@import url('input-style.css');
+@import url('pagination.css');
+@import url('repos-style.css');
+@import url('loader-style.css');
+@import url('profile.css');
+
 .container {
     height: 100vh;
     display: flex;

@@ -1,38 +1,39 @@
-import  {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Octokit} from "@octokit/core";
+import {GITHUB_API_URL} from "../constants";
 
 export const useRequest = (initData) => {
 
-    const [userData,setUserData] = useState(initData);
+    const [data, setData] = useState(initData);
     const [url, setUrl] = useState('');
+    const [options, setOptions] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
-    const [options,setOptions] = useState(null);
 
 
-    const octokit = new Octokit({
-        baseUrl: 'https://api.github.com/users'
-    })
+    //first render
+    const [didMount, setDidMount] = useState(false)
+    useEffect(() => setDidMount(true), [])
 
-    const request = (url,options) => {
+    const setRequest = (url, options) => {
         setUrl(url);
         setOptions(options);
     }
 
-    const [didMount, setDidMount] = useState(false)
-    useEffect(() => setDidMount(true), [])
+    useEffect(() => {
 
-    useEffect(()=>{
-
-        if(didMount) {
+        const octokit = new Octokit({
+            baseUrl: GITHUB_API_URL
+        })
+        if (didMount) {
             const response = async () => {
                 setIsLoading(true);
                 return await octokit.request(url, options);
             }
             response().then(
                 (result) => {
-                    // console.log(result)
-                    setUserData(result.data);
+                    setData(result.data);
+
                     setIsLoading(false);
                     setIsError(false);
                 },
@@ -42,13 +43,13 @@ export const useRequest = (initData) => {
                 }
             );
         }
-    },[url,options]);
+    }, [url, options]);
 
     return {
-        isLoading : isLoading,
-        isError : isError,
-        data: userData,
-        request: request
+        isLoading: isLoading,
+        isError: isError,
+        data: data,
+        request: setRequest
     };
 }
 
